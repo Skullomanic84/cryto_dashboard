@@ -1,10 +1,13 @@
+import React from 'react';
 import './App.css';
+import AppLayout from './AppLayout';
 
 function App() {
   return (
     
-    <div>
-    hello world</div>
+    <AppLayout>
+    hello world
+    </AppLayout>
   );
 }
 
