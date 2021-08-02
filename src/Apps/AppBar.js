@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css }from 'styled-components';
+import { AppContext } from './AppProvider';
 
 //declaring style components
 const Logo = styled.div `
@@ -16,7 +17,7 @@ grid-template-columns: 180px auto 100px 100px;
 const ControlButtonElem = styled.div `
 cursor: pointer;
 ${props => props.active && css `
-    text-shadow: 0px 0px 60px #03ff03;
+    color: #ff8906;
 `}
 `
     //text case styling
@@ -26,9 +27,19 @@ ${props => props.active && css `
     // setting up the buttons
     function ControlButton({name, active}){
         return (
-            <ControlButtonElem active={active}>
+            <AppContext.Consumer>
+                {({page, setPage}) => (
+                <ControlButtonElem 
+                active={page === name}
+                onClick = {() => setPage(name)}
+                >
                 {toProperCase(name)}      
-            </ControlButtonElem>
+                </ControlButtonElem>
+                )
+            }
+            
+            </AppContext.Consumer>
+            
         );
     }
 
