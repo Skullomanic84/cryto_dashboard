@@ -12,6 +12,7 @@ const Bar = styled.div `
 display: grid;
 margin-bottom: 40px;
 grid-template-columns: 180px auto 100px 100px;
+grid-column-gap: 40px;
 `
 // button styling
 const ControlButtonElem = styled.div `
